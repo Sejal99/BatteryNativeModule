@@ -18,4 +18,7 @@ export const getBatteryLevel = async () => {
 };
 NativeModules.ToastModule.showToast('Hello from Kotlin!', ToastAndroid.SHORT);
 
+NativeModules.TimeModule.getCurrentTimestamp()
+  .then((ts: any) => console.log('Current Timestamp:', ts))
+  .catch((err: any) => console.error(err));
 export default BatteryModule;
