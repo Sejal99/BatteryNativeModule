@@ -25,6 +25,7 @@ const App = () => {
       {batteryLevel && !loading && (
         <Text style={styles.text}>Battery: {batteryLevel}</Text>
       )}
+      
     </View>
   );
 };

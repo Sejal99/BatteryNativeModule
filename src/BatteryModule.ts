@@ -1,4 +1,4 @@
-import {NativeModules} from 'react-native';
+import {NativeModules, ToastAndroid} from 'react-native';
 
 const {BatteryModule} = NativeModules;
 
@@ -16,5 +16,6 @@ export const getBatteryLevel = async () => {
     return null;
   }
 };
+NativeModules.ToastModule.showToast('Hello from Kotlin!', ToastAndroid.SHORT);
 
 export default BatteryModule;
