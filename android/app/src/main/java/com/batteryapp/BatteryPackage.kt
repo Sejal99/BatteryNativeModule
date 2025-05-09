@@ -7,7 +7,9 @@ import com.facebook.react.uimanager.ViewManager
 
 class BatteryPackage : ReactPackage {
     override fun createNativeModules(reactContext: ReactApplicationContext): List<NativeModule> {
-        return listOf(BatteryModule(reactContext))
+        return listOf(BatteryModule(reactContext),
+        ToastModule(reactContext),
+        )
     }
 
     override fun createViewManagers(reactContext: ReactApplicationContext): List<ViewManager<*, *>> {
