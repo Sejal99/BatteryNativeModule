@@ -1,97 +1,166 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# BatteryApp 🔋📱
 
-# Getting Started
+A React Native application that demonstrates how to access native device functionalities, specifically retrieving the battery level on both iOS and Android platforms. This project serves as a practical example for developers looking to integrate native modules into their React Native applications. It showcases asynchronous communication between JavaScript and native code, error handling, and platform-specific implementations.
 
-> **Note**: Make sure you have completed the [Set Up Your Environment](https://reactnative.dev/docs/set-up-your-environment) guide before proceeding.
+## 🚀 Features
 
-## Step 1: Start Metro
+- **Battery Level Retrieval:** Fetches the current battery level of the device using native modules.
+- **Cross-Platform Compatibility:** Implements native modules for both iOS (Swift) and Android (Kotlin) to ensure functionality on both platforms.
+- **Asynchronous Operations:** Uses promises to handle asynchronous calls to native modules, ensuring non-blocking UI updates.
+- **Loading Indicator:** Displays a loading indicator while fetching the battery level.
+- **Error Handling:** Gracefully handles errors during battery level retrieval and displays informative messages.
+- **Toast Messages:** Uses native toast messages (Android) to display additional information.
+- **Charging Status (Android):** Checks and displays whether the device is currently charging (Android only).
+- **Timestamp Logging:** Retrieves and logs the current timestamp using a native module.
 
-First, you will need to run **Metro**, the JavaScript build tool for React Native.
+## 🛠️ Tech Stack
 
-To start the Metro dev server, run the following command from the root of your React Native project:
+- **Frontend:**
+    - React Native: v0.79.2
+    - React: v19.0.0
+    - TypeScript
+- **iOS:**
+    - Swift
+    - Objective-C (Bridging Header)
+    - UIKit
+    - React Native iOS Modules
+- **Android:**
+    - Kotlin
+    - Android SDK
+    - React Native Android Modules
+- **Development Tools:**
+    - Node.js
+    - npm/Yarn
+    - Metro Bundler
+    - Babel
+    - ESLint
+    - Jest
+    - Prettier
+- **Other:**
+    - app.json: Application configuration
+    - package.json: Project dependencies and scripts
 
-```sh
-# Using npm
-npm start
+## 📦 Getting Started
 
-# OR using Yarn
-yarn start
+Follow these instructions to get the project up and running on your local machine.
+
+### Prerequisites
+
+- Node.js (>=18)
+- npm or Yarn
+- React Native CLI
+- Xcode (for iOS development)
+- Android SDK (for Android development)
+- Cocoapods (for iOS dependency management)
+
+### Installation
+
+1.  **Clone the repository:**
+
+    ```bash
+    git clone <repository_url>
+    cd BatteryApp
+    ```
+
+2.  **Install JavaScript dependencies:**
+
+    ```bash
+    npm install  # or yarn install
+    ```
+
+3.  **Install iOS dependencies:**
+
+    ```bash
+    cd ios
+    pod install
+    cd ..
+    ```
+
+4.  **Configure Android:**
+
+    *   Ensure that you have the Android SDK set up correctly.
+    *   Set the `ANDROID_HOME` environment variable to your Android SDK path.
+
+### Running Locally
+
+#### Android
+
+1.  **Start the Metro bundler:**
+
+    ```bash
+    npm start # or yarn start
+    ```
+
+2.  **Run the app on an Android emulator or device:**
+
+    ```bash
+    npm run android # or yarn android
+    ```
+
+#### iOS
+
+1.  **Start the Metro bundler:**
+
+    ```bash
+    npm start # or yarn start
+    ```
+
+2.  **Run the app on an iOS simulator or device:**
+
+    ```bash
+    npm run ios # or yarn ios
+    ```
+
+## 📂 Project Structure
+
+```
+BatteryApp/
+├── android/                  # Android platform code
+│   ├── app/
+│   │   ├── src/main/java/com/batteryapp/
+│   │   │   ├── BatteryModule.kt        # Native module for battery level
+│   │   │   ├── BatteryPackage.kt       # Registers the native module
+│   │   │   ├── ChargingStatusModule.kt # Native module for charging status
+│   │   │   ├── MainActivity.kt         # Main activity
+│   │   │   ├── MainApplication.kt      # Main application
+│   │   │   ├── TimeModule.kt           # Native module for timestamp
+│   │   │   ├── ToastModule.kt          # Native module for toast messages
+├── ios/                      # iOS platform code
+│   ├── BatteryApp/
+│   │   ├── AppDelegate.swift       # Application delegate
+│   │   ├── BatteryModule.swift       # Native module for battery level
+│   │   ├── BatteryApp-Bridging-Header.h # Bridging header for Objective-C
+├── src/                      # React Native source code
+│   ├── BatteryModule.ts        # JavaScript bridge to native module
+├── App.tsx                   # Main application component
+├── index.js                  # Entry point for React Native
+├── app.json                  # Application configuration
+├── package.json              # Project dependencies and scripts
+├── README.md                 # This file
 ```
 
-## Step 2: Build and run your app
+## 📸 Screenshots
 
-With Metro running, open a new terminal window/pane from the root of your React Native project, and use one of the following commands to build and run your Android or iOS app:
+(Screenshots of the application running on both iOS and Android will be added here.)
 
-### Android
+## 🤝 Contributing
 
-```sh
-# Using npm
-npm run android
+Contributions are welcome! Please follow these steps:
 
-# OR using Yarn
-yarn android
-```
+1.  Fork the repository.
+2.  Create a new branch for your feature or bug fix.
+3.  Make your changes and commit them with clear, concise messages.
+4.  Submit a pull request.
 
-### iOS
+## 📝 License
 
-For iOS, remember to install CocoaPods dependencies (this only needs to be run on first clone or after updating native deps).
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-The first time you create a new project, run the Ruby bundler to install CocoaPods itself:
+## 📬 Contact
 
-```sh
-bundle install
-```
+[Sejal Srivastava] - [sejal8974@gmail.com]
 
-Then, and every time you update your native dependencies, run:
+## 💖 Thanks
 
-```sh
-bundle exec pod install
-```
+Thank you for checking out this project! We hope it helps you in your React Native development journey.
 
-For more information, please visit [CocoaPods Getting Started guide](https://guides.cocoapods.org/using/getting-started.html).
-
-```sh
-# Using npm
-npm run ios
-
-# OR using Yarn
-yarn ios
-```
-
-If everything is set up correctly, you should see your new app running in the Android Emulator, iOS Simulator, or your connected device.
-
-This is one way to run your app — you can also build it directly from Android Studio or Xcode.
-
-## Step 3: Modify your app
-
-Now that you have successfully run the app, let's make changes!
-
-Open `App.tsx` in your text editor of choice and make some changes. When you save, your app will automatically update and reflect these changes — this is powered by [Fast Refresh](https://reactnative.dev/docs/fast-refresh).
-
-When you want to forcefully reload, for example to reset the state of your app, you can perform a full reload:
-
-- **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Dev Menu**, accessed via <kbd>Ctrl</kbd> + <kbd>M</kbd> (Windows/Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (macOS).
-- **iOS**: Press <kbd>R</kbd> in iOS Simulator.
-
-## Congratulations! :tada:
-
-You've successfully run and modified your React Native App. :partying_face:
-
-### Now what?
-
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [docs](https://reactnative.dev/docs/getting-started).
-
-# Troubleshooting
-
-If you're having issues getting the above steps to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
-
-# Learn More
-
-To learn more about React Native, take a look at the following resources:
-
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
